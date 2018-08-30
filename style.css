@@ -1,20 +1,88 @@
-#nav{
-    color:#fff;
-    background: #0B3861;
+body{
+    background-color:darkgray
+}
+header{
+    color: #E6E6E6;
+    background-color:  #0B3861;
+    width:100%;
+    margin: auto;
+    overflow: hidden;
     height: 100px;
 }
-#nav h1{
-    text-align: center;
+
+#title{
+    color: #fff;
+    margin: 10px 0 0 10px;
+    font-size: 30px;
+
 }
-#slider{
-    width:100%
+#image{
+    margin-top:20px;
+    width:60%;
+    float: left;
 }
 .register{
     background-color:beige;
     border-radius:3px;
     border-color:bisque;
-    text-align:center;    
+    text-align:center;
+    float:right; 
+    margin:20px 0 0 20px;
+    width: 30%;
+    padding: 10px 15px;
 }
 .filedset{
-    margin-top:20px;
+    margin-top:20px;    
 }
+input[type=text]{
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=submit]{
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #0B3861;
+    color:#fff;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width:800px) {
+    /** for tablets */
+    body {
+        background-color:burlywood;
+    }
+    .register{
+        width: 90%;
+    }
+    #image{
+        width:100%;
+    }
+    
+}
+
+@media screen and (max-width:500px) {
+    /* for phone */
+    body {
+        background-color: rgb(192, 212, 192);
+    }
+    .register{
+        width: 90%;
+    }
+    #image{
+        width:100%;
+        padding:0 0 0 0;
+        margin: 10px 0 0 0;
+    }
+
+}
+
+
+
