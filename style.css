@@ -1,32 +1,19 @@
 body{
-    background-color:darkgray
+    background-color:darkgray;
 }
-header{
-    color: #E6E6E6;
-    background-color:  #0B3861;
-    width:100%;
-    margin: auto;
+.navbar{
     overflow: hidden;
-    height: 150px;
+    background-color: #0B3861;
 }
-
-header ul{
-    color:#fff;
-    list-style-type: none;
-}
-
-header li{
+.navbar a{
     float: left;
-}
-header li a{
     display: block;
-    color: #fff;
-    text-align: center;   
-    padding: 10px 10px;
+    color: #f2f2f2;
+    padding: 10px 20px;
     text-decoration: none;
 }
-header li a:hover{
-    color: chocolate;
+.navbar a:hover{
+    color:chocolate;
 }
 #title{
     color: #fff;
@@ -80,6 +67,11 @@ input[type=submit]{
     .register{
         width: 90%;
     }
+
+    header{
+        float:none;
+        width:100%;
+    }
     #image{
         width:100%;
     }
@@ -99,6 +91,10 @@ input[type=submit]{
         padding:0 0 0 0;
         margin: 10px 0 0 0;
     }
+    .navbar a {
+        float: none;
+        width: 100%;
+      }
 
 }
 
