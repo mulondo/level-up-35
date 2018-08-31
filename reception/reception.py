@@ -13,16 +13,29 @@ class Reception:
         temp_ordinary=open('ordinary.txt','r')
         for line in temp_ordinary:
             self.ordinary.append(line.strip('\n'))
-        return ordinary
+        return self.ordinary
     
-    def search_name(self):
-        vip_name=input("Entetr name ")
-        names=[]
-        names=self.store_vip()
-        for nm in names:
-            if vip_name in nm:
-                return nm
+    def registration_checker(self):
+            enter_name=input("Enter name ")
+            vip_names=[]
+            ordinary_names=[]
+            ordinary_names=self.store_ordinary()
+            vip_names=self.store_vip()
+            for nm in vip_names:
+                if enter_name in nm.casefold():
+                    return nm+" VIP"
+                else:
+                    pass
+            for n in ordinary_names:
+                if enter_name in n.casefold():
+                    return n+" ordinary"
+            else:
+                return enter_name+" Not Registered"
+            
+                
+                
+while True:
+    people=Reception()
+    print(people.registration_checker(), '\n')
 
-people=Reception()
-print(people.search_name())
     
