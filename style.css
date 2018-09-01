@@ -31,8 +31,9 @@ body{
     border-radius:3px;
     border-color:bisque;
     text-align:center;
-    float:right; 
-    margin:20px 0 0 20px;
+    float:right;
+    margin-right:px;
+    margin:20px 0 0;
     width: 30%;
     padding: 10px 15px;
 }
@@ -67,6 +68,7 @@ input[type=submit]{
     }
     .register{
         width: 90%;
+        margin-right:10px;
     }
 
     header{
@@ -86,6 +88,7 @@ input[type=submit]{
     }
     .register{
         width: 90%;
+        margin-right:0;
     }
     #image{
         width:100%;
