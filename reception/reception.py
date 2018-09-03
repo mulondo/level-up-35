@@ -16,30 +16,30 @@ class Reception:
         return self.ordinary
     
     def validation(self,name):
-        if name==None:
-            return "Incorrect format"
+        if name=="":
+            return "Name missing"
         elif name.isspace():
             return "No name is entered"
-        True
+      
     
     def registration_checker(self):
-            enter_name=input("Enter name ")
-            self.validation(enter_name)
-            vip_names=[]
-            ordinary_names=[]
-            ordinary_names=self.store_ordinary()
-            vip_names=self.store_vip()
-            for nm in vip_names:
-                if enter_name in nm.casefold():
-                    return nm+" VIP"
-                else:
-                    pass
-            for n in ordinary_names:
-                if enter_name in n.casefold():
-                    return n+" ordinary"
+        enter_name=input("Enter name: ")
+        self.validation(enter_name)
+        vip_names=[]
+        ordinary_names=[]
+        ordinary_names=self.store_ordinary()
+        vip_names=self.store_vip()
+        for nm in vip_names:
+            if enter_name in nm.casefold():
+                return nm+" VIP"
             else:
-                return enter_name+" Not Registered"
-            
+                pass
+        for n in ordinary_names:
+            if enter_name in n.casefold():
+                return n+" ordinary"
+        else:
+            return enter_name+" Not Registered"
+        
                 
                 
 while True:
