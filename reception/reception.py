@@ -15,8 +15,16 @@ class Reception:
             self.ordinary.append(line.strip('\n'))
         return self.ordinary
     
+    def validation(self,name):
+        if name==None:
+            return "Incorrect format"
+        elif name.isspace():
+            return "No name is entered"
+        True
+    
     def registration_checker(self):
             enter_name=input("Enter name ")
+            self.validation(enter_name)
             vip_names=[]
             ordinary_names=[]
             ordinary_names=self.store_ordinary()
