@@ -11,3 +11,21 @@ class Signup:
             return self.users
         else:
             return "Wrong user name or password"
+    
+    def validate_input(self, username, password):
+        if username or password is not str:
+            return "wrong input format"
+        elif username or password is None:
+            return "Username or password is empty"
+
+    def check_length(self):
+        return len(self.users)
+
+    def change_password(self,username, newpassord):
+        self.users[username]=newpassord
+        return  self.users
+
+
+
+
+
