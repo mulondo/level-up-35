@@ -11,9 +11,9 @@ class Signup:
         self.users.append(reg_user)
         return self.users
 
-    def get_user(self, username):
+    def get_user(self, username,password):
         for usr in self.users:
-            if usr['username']==username:
+            if usr['username']==username and usr['email']==password:
                 return self.users
         else:
             return "Wrong user name or password"
@@ -31,13 +31,23 @@ class Signup:
         for usrs in self.users:
             if usrs['username']==username:
                 usrs['password']=newpassord
-        return  self.users    
+        return  self.users
+
+    def remove_user(self,username):
+        for usr in self.users:
+            if usr['username']==username:
+                usr['username']="" 
+                return self.users
+        return "user doesnot exist" 
     
     def forgot_username(self,email,password):
         for user in self.users:
             if (user['email']==email and user['password']==password):
                 return self.users
         return "incorrect email or password"
+    
+    
+
 
 
 
