@@ -19,8 +19,8 @@ class Test(unittest.TestCase):
         self.assertTrue(self.sign_up.get_user("moses","mulo@gmail.com"), msg="The user name is not registered")
 
     def test_validation_input(self):
-        self.assertTrue(self.sign_up.validate_input(254, 9932), msg="wrong input format")
-        self.assertTrue(self.sign_up.validate_input("", ""), msg="Username and password is not empty")
+        self.assertRaises(TypeError,self.sign_up.validate_input, 1545,323)
+
 
     def test_check_length(self):
         self.assertEqual(self.sign_up.check_length(), 0)
@@ -28,7 +28,9 @@ class Test(unittest.TestCase):
         self.assertEqual(self.sign_up.check_length(), 1)
 
     def test_change_password(self):
-        self.sign_up.add_user("John", "123456","john@gmail.com")
+        self.sign_up.add_user("John1", "123456","jofhn@gmail.com")
+        self.sign_up.add_user("John2", "123456","joghn@gmail.com")
+        self.sign_up.add_user("John", "123456","johhn@gmail.com")
         self.assertTrue(self.sign_up.change_password("John","90433e"), msg="password not changed")
     
     def test_forgot_username(self):
