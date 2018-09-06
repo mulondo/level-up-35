@@ -1,12 +1,12 @@
 from flask import Flask,jsonify,json,request
-from model import User
+from work import User
 
 
 myapp=Flask(__name__)
 users=User()
 @myapp.route('/api/users',methods=['GET'])
 def get_all():
-    return jsonify({'Users':users.get_all_users()}),200
+    return jsonify({'Users':users.get_users()}),200
 
 @myapp.route('/api/users',methods=['POST'])
 def add_user():
