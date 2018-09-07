@@ -1,5 +1,6 @@
 from flask import Flask,jsonify,json,request
 from work import User
+import re
 
 
 myapp=Flask(__name__)
@@ -21,6 +22,9 @@ def add_user():
         return jsonify({'error': 'Wrong format'}), 400
     if useremail.strip() == "":
         return jsonify({'error': 'email is missing'}), 400
+    email_match=re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', useremail)
+    if email_match == None:
+	    return jsonify({'message':'Incorrect email format'})
     if userpassord.strip()=="":
         return jsonify({'error': 'password is missing'}), 400 
     
