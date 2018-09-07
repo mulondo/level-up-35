@@ -13,6 +13,20 @@ def add_user():
     username=request.json['username']
     useremail=request.json['email']
     userpassord=request.json['password']
+
+    # Validate entry
+    if username.strip() == "":
+        return jsonify({'error': 'username is missing'}), 400
+    if type(username) is not str:
+        return jsonify({'error': 'Wrong format'}), 400
+    if useremail.strip() == "":
+        return jsonify({'error': 'email is missing'}), 400
+    if userpassord.strip()=="":
+        return jsonify({'error': 'password is missing'}), 400 
+    
+    username=request.json['username']
+    useremail=request.json['email']
+    userpassord=request.json['password']
     users.add_user(username,useremail,userpassord)
     return jsonify({'message':'succussfully'}),201
 
