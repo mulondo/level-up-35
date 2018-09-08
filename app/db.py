@@ -13,7 +13,7 @@ user_table="""create table if not exists Users(user_id serial PRIMARY KEY NOT NU
                                                 age INT NOT NULL,
                                                 email TEXT NOT NULL,
                                                 password TEXT NOT NULL,
-                                                create_at DATE
+                                                create_at_DATE
                                                 )"""
 cur.execute(user_table)
 
