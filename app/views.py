@@ -1,5 +1,7 @@
 from flask import Flask,jsonify,json,request
 from work import User
+import psycopg2
+from db import cur
 import re
 
 
@@ -31,8 +33,18 @@ def add_user():
     username=request.json['username']
     useremail=request.json['email']
     userpassord=request.json['password']
-    users.add_user(username,useremail,userpassord)
-    return jsonify({'message':'succussfully'}),201
+    #users.add_user(username,useremail,userpassord)
+    try:
+        sql="INSERT INTO students(first_name,last_name) VALUES(%s,%s)"
+        cur.execute(sql,(username,userpassord))
+
+    except psycopg2.Error as err:
+        return jsonify({'error':str(err)})
+        
+    return jsonify({'message':'succussfully registered'}),201
+
+
+    #return jsonify({'message':'succussfully'}),201
 
 @myapp.route('/api/users/<int:user_id>',methods=['DELETE'])
 def remove_user(user_id):
