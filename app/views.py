@@ -2,6 +2,7 @@ from flask import Flask,jsonify,json,request
 from work import User
 import psycopg2
 from db import cur
+import datetime
 import re
 
 
@@ -13,7 +14,7 @@ def get_all():
 
 @myapp.route('/api/users',methods=['POST'])
 def add_user():
-    username=request.json['username']
+    username=request.json['firstname']
     useremail=request.json['email']
     userpassord=request.json['password']
 
@@ -30,13 +31,16 @@ def add_user():
     if userpassord.strip()=="":
         return jsonify({'error': 'password is missing'}), 400 
     
-    username=request.json['username']
-    useremail=request.json['email']
-    userpassord=request.json['password']
-    #users.add_user(username,useremail,userpassord)
+    first_name=request.json['firstname']
+    last_name=request.json['lastname']
+    age=request.json['age']
+    create_at_dates=datetime.datetime.now().strftime("%Y-%m-%d")
+    email=request.json['email']
+    passord=request.json['password']
+
     try:
-        sql="INSERT INTO students(first_name,last_name) VALUES(%s,%s)"
-        cur.execute(sql,(username,userpassord))
+        sql="INSERT INTO Users(first_name,last_name,age,email,password,create_at_Date)"
+        cur.execute(sql,(first_name,last_name,age,email,passord,create_at_dates))
 
     except psycopg2.Error as err:
         return jsonify({'error':str(err)})
