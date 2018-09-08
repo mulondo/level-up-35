@@ -1,7 +1,7 @@
 import psycopg2
 
 #connect to database
-con=psycopg2.connect(host="localhost", database="school",user="postgres",password="angels",port="5432")
+con=psycopg2.connect(host="localhost", database="eventapp",user="postgres",password="angels",port="5432")
 
 cur=con.cursor()
 
@@ -25,10 +25,10 @@ event_table="""create table if not exists Event(event_id serial PRIMARY KEY NOT 
 cur.execute(event_table)
 
 Ticket_table="""create table if not exists Ticket(ticket_id serial PRIMARY KEY NOT NULL,
-                                                user_id,
-                                                event_id,
-                                                is_valid,
-                                                verification_code,
-                                                created_at
+                                                user_id INT,
+                                                event_id INT,
+                                                is_valid INT,
+                                                verification_code BIGINT,
+                                                created_at DATE
                                                 )"""
 cur.execute(Ticket_table)
